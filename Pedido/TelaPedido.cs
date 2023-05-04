@@ -40,7 +40,14 @@ namespace ControleDeBar.ConsoleApp.Pedido
 
             EntidadeProduto produto = (EntidadeProduto)repositorioProduto.SelecionarPorId(idProduto);
 
-            return new EntidadePedido(produto);
+            Console.WriteLine("Qual a quantidade do pedido? ");
+            int quantidade = int.Parse(Console.ReadLine());
+
+            int valorTotal = produto.valor * quantidade;
+
+            return new EntidadePedido(produto, valorTotal, quantidade);
         }
+
+       
     }
 }

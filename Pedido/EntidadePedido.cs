@@ -11,10 +11,14 @@ namespace ControleDeBar.ConsoleApp.Pedido
     public class EntidadePedido : EntidadeBase
     {
         public EntidadeProduto entidadeProduto { get; set; }
+        public int quantidade { get; set; }
+        public int valor { get; set; }
 
-        public EntidadePedido(EntidadeProduto produto)
+        public EntidadePedido(EntidadeProduto produto, int valor, int quantidade)
         {
             this.produto = produto;
+            this.quantidade = quantidade;
+            this.valor = valor;
         }
 
         public EntidadeProduto produto { get; set; }

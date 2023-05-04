@@ -147,21 +147,38 @@ namespace ControleDeBar.ConsoleApp
             repositorioFuncionario.Inserir(funcionario1);
             repositorioFuncionario.Inserir(funcionario2);
 
-            EntidadeMesa mesa1 = new EntidadeMesa("Perto Janela");
-            EntidadeMesa mesa2 = new EntidadeMesa("Perto Porta");
+            EntidadeMesa mesa1 = new EntidadeMesa("1");
+            EntidadeMesa mesa2 = new EntidadeMesa("2");
+            EntidadeMesa mesa3 = new EntidadeMesa("3");
+            EntidadeMesa mesa4 = new EntidadeMesa("4");
+            EntidadeMesa mesa5 = new EntidadeMesa("5");
+            EntidadeMesa mesa6 = new EntidadeMesa("6");
 
             repositorioMesa.Inserir(mesa1);
             repositorioMesa.Inserir(mesa2);
+            repositorioMesa.Inserir(mesa3);
+            repositorioMesa.Inserir(mesa4);
+            repositorioMesa.Inserir(mesa5);
+            repositorioMesa.Inserir(mesa6);
 
             EntidadeProduto produto1 = new EntidadeProduto("Cerveja", 10);
             EntidadeProduto produto2 = new EntidadeProduto("Batata Frita", 30);
             EntidadeProduto produto3 = new EntidadeProduto("Agua", 5);
             EntidadeProduto produto4 = new EntidadeProduto("Suco de Laranja", 8);
 
+            EntidadeProduto produto5 = new EntidadeProduto("Pinga", 15);
+            EntidadeProduto produto6 = new EntidadeProduto("Polenta Frita", 25);
+            EntidadeProduto produto7 = new EntidadeProduto("X-Burguer", 35);
+            EntidadeProduto produto8 = new EntidadeProduto("Suco de Morango", 8);
+
             repositorioProduto.Inserir(produto1);
             repositorioProduto.Inserir(produto2);
             repositorioProduto.Inserir(produto3);
             repositorioProduto.Inserir(produto4);
+            repositorioProduto.Inserir(produto5);
+            repositorioProduto.Inserir(produto6);
+            repositorioProduto.Inserir(produto7);
+            repositorioProduto.Inserir(produto8);
         }
     }
 }

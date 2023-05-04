@@ -43,9 +43,9 @@ namespace ControleDeBar.ConsoleApp.Conta
         protected override void MostrarTabela(ArrayList registros)
         {
             string pedidosstr = " ";
+            int valor = 0;
 
-
-            Console.WriteLine("{0, -10} | {1, -10} | {2, -10}", "id", "Mesa", "Pedidos");
+            Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -30}", "id", "Mesa", "Pedidos", "Valor");
 
             Console.WriteLine("-----------------------------------------------------------------------");
 
@@ -53,11 +53,12 @@ namespace ControleDeBar.ConsoleApp.Conta
             {
                 foreach (EntidadePedido item in conta.pedidos)
                 {
-                    pedidosstr += " - " + item.produto.nome;
+                    pedidosstr += " - " + item.produto.nome +  " qtd: " + item.quantidade;
+                    valor = item.valor;
                 }
 
 
-                Console.WriteLine("{0, -10} | {1, -10} | {2, -10} ", conta.id, conta.mesa.local, pedidosstr);
+                Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -30}", conta.id, conta.mesa.local, pedidosstr, conta.valor);
                 pedidosstr = string.Empty;
             }
         }
@@ -85,13 +86,24 @@ namespace ControleDeBar.ConsoleApp.Conta
             int valorConta = 0;
             ArrayList pedidos = new ArrayList();
 
+            EntidadeMesa mesa = ObterMesa();
+
+            if (mesa.isOcupada == true)
+            {
+                MostrarMensagem("Mesa ocupada", ConsoleColor.DarkYellow);
+                telaMesa.InserirNovoRegistro();
+                mesa = ObterMesa();
+            }
+
+            mesa.isOcupada = true;
+
             EntidadeFuncionario funcionario = ObterFuncionario();
 
             Console.Clear();
 
             EntidadePedido pedido = ObterPedido();
 
-            valorConta += pedido.produto.valor;
+            valorConta += pedido.valor;
             AdicionarValorDiaria(pedido);
             pedidos.Add(pedido);
 
@@ -109,13 +121,12 @@ namespace ControleDeBar.ConsoleApp.Conta
                 pedidos.Add(pedido);
 
                 AdicionarValorDiaria(pedido);
-                valorConta += pedido.produto.valor;
+                valorConta += pedido.valor;
 
             } while (true);
 
             Console.Clear();
 
-            EntidadeMesa mesa = ObterMesa();
 
             return new EntidadeConta(funcionario, pedidos, mesa, valorConta);
         }
@@ -146,7 +157,7 @@ namespace ControleDeBar.ConsoleApp.Conta
 
                 conta.pedidos.Add(pedido);
 
-                conta.valor += pedido.produto.valor;
+                conta.valor += pedido.valor;
                 AdicionarValorDiaria(pedido);
 
             } while (true);
@@ -176,7 +187,7 @@ namespace ControleDeBar.ConsoleApp.Conta
 
         private int AdicionarValorDiaria(EntidadePedido pedido)
         {
-            int valorConta = pedido.produto.valor;
+            int valorConta = pedido.valor;
 
             repositorioConta.valorContaDiaria.Add(valorConta);
             return valorConta;

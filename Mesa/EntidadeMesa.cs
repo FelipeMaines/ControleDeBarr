@@ -11,6 +11,7 @@ namespace ControleDeBar.ConsoleApp.Mesa
     {
 
         public string local { get; set; }
+        public bool isOcupada { get; set; }
 
         public EntidadeMesa(string local)
         {
