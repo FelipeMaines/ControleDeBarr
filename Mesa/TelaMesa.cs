@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Mesa
 {
-    public class TelaMesa : TelaBase
+    public class TelaMesa : TelaBase<EntidadeMesa, RepositorioMesa>
     {
         public RepositorioConta repositorioConta;
         public RepositorioPedido repositorioPedido;
@@ -18,7 +18,7 @@ namespace ControleDeBar.ConsoleApp.Mesa
         public TelaProduto telaProduto;
         public TelaConta telaConta;
 
-        public TelaMesa(RepositorioBase repositorio, RepositorioConta repositorioConta, RepositorioPedido repositorioPedido,
+        public TelaMesa(RepositorioMesa repositorio, RepositorioConta repositorioConta, RepositorioPedido repositorioPedido,
             RepositorioProduto repositorioProduto, TelaProduto telaProduto) : base(repositorio)
         {
             this.repositorioConta = repositorioConta;
@@ -28,7 +28,7 @@ namespace ControleDeBar.ConsoleApp.Mesa
             this.telaConta = telaConta;
         }
 
-        protected override void MostrarTabela(ArrayList registros)
+        protected override void MostrarTabela(List<EntidadeMesa> registros)
         {
             Console.WriteLine("{0, -10} | {1, -10} |", "id","local");
 
@@ -40,7 +40,7 @@ namespace ControleDeBar.ConsoleApp.Mesa
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override EntidadeMesa ObterRegistro()
         {
             Console.WriteLine("local:");
             string local = Console.ReadLine();

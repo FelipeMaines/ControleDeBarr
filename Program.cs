@@ -11,11 +11,11 @@ namespace ControleDeBar.ConsoleApp
     {
         static void Main(string[] args)
         {
-            RepositorioMesa repositorioMesa = new RepositorioMesa(new ArrayList());
-            RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario(new ArrayList());
-            RepositorioProduto repositorioProduto = new RepositorioProduto(new ArrayList());
-            RepositorioConta repositorioConta = new RepositorioConta(new ArrayList());
-            RepositorioPedido repositorioPedido = new RepositorioPedido(new ArrayList());
+            RepositorioMesa repositorioMesa = new RepositorioMesa(new List<EntidadeMesa>());
+            RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario(new List<EntidadeFuncionario>());
+            RepositorioProduto repositorioProduto = new RepositorioProduto(new List<EntidadeProduto>());
+            RepositorioConta repositorioConta = new RepositorioConta(new List<EntidadeConta>());
+            RepositorioPedido repositorioPedido = new RepositorioPedido(new List<EntidadePedido>());
 
             Popular(repositorioFuncionario, repositorioMesa, repositorioProduto);
 

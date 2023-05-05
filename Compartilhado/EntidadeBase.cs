@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ControleDeBar.ConsoleApp
 {
-     public abstract class EntidadeBase 
+     public abstract class EntidadeBase
      {
           public int id;
 

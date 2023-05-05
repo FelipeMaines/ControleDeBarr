@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Funcionario
 {
-    public class RepositorioFuncionario : RepositorioBase
+    public class RepositorioFuncionario : RepositorioBase<EntidadeFuncionario>
     {
-        public RepositorioFuncionario(ArrayList listaRegistros)
+        public RepositorioFuncionario(List<EntidadeFuncionario> listaRegistros)
         {
             this.listaRegistros = listaRegistros;
         }

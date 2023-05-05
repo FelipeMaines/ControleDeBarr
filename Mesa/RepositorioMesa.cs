@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Mesa
 {
-    public class RepositorioMesa : RepositorioBase
+    public class RepositorioMesa : RepositorioBase<EntidadeMesa>
     {
-        public RepositorioMesa(ArrayList listaRegistros) : base()
+        public RepositorioMesa(List<EntidadeMesa> listaRegistros) : base()
         {
             this.listaRegistros = listaRegistros;
         }

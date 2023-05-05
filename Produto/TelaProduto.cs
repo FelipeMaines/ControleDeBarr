@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Produto
 {
-    public class TelaProduto : TelaBase
+    public class TelaProduto : TelaBase<EntidadeProduto, RepositorioProduto>
     {
-        public TelaProduto(RepositorioBase repositorio) : base(repositorio)
+        public TelaProduto(RepositorioProduto repositorio) : base(repositorio)
         {
             nomeEntidade = "Produto";
         }
 
-        protected override void MostrarTabela(ArrayList registros)
+        protected override void MostrarTabela(List<EntidadeProduto> registros)
         {
             Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | ", "id", "nome", "valor");
 
@@ -26,7 +26,7 @@ namespace ControleDeBar.ConsoleApp.Produto
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override EntidadeProduto ObterRegistro()
         {
             Console.WriteLine("Qual o nome do produto?");
             string nome = Console.ReadLine();

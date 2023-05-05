@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Funcionario
 {
-    public class TelaFuncionario : TelaBase
+    public class TelaFuncionario : TelaBase<EntidadeFuncionario, RepositorioFuncionario>
     {
         public TelaFuncionario(RepositorioFuncionario repositorioFuncionario) : base(repositorioFuncionario)
         {
@@ -15,7 +15,7 @@ namespace ControleDeBar.ConsoleApp.Funcionario
             sufixo = "s";
         }
 
-        protected override void MostrarTabela(ArrayList registros)
+        protected override void MostrarTabela(List<EntidadeFuncionario> registros)
         {
             Console.WriteLine("{0, -10} | {1, -10} | ", "id", "nome");
 
@@ -27,7 +27,7 @@ namespace ControleDeBar.ConsoleApp.Funcionario
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override EntidadeFuncionario ObterRegistro()
         {
             Console.WriteLine("Qual o nome do Garcon?");
             string nome = Console.ReadLine();

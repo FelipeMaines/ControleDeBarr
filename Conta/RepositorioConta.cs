@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Conta
 {
-    public class RepositorioConta : RepositorioBase
+    public class RepositorioConta : RepositorioBase<EntidadeConta>
     {
+        public RepositorioConta(List<EntidadeConta> listaRegistros)
+        {
+            this.listaRegistros = listaRegistros;
+        }
+
         public ArrayList valorContaDiaria = new ArrayList();
 
         public int  ValorFinalConta()
@@ -23,9 +28,6 @@ namespace ControleDeBar.ConsoleApp.Conta
             return valorFinal;
         }
 
-        public RepositorioConta(ArrayList arrayList)
-        {
-            this.listaRegistros = arrayList;
-        }
+       
     }
 }

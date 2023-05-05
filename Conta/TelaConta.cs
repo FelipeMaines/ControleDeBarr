@@ -12,20 +12,21 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Conta
 {
-    public class TelaConta : TelaBase
+    public class TelaConta : TelaBase<EntidadeConta, RepositorioConta>
     {
-        public RepositorioBase repositorio;
+        public RepositorioConta repositorio;
         public RepositorioFuncionario repositorioFuncionario;
         public RepositorioConta repositorioConta;
         public RepositorioPedido repositorioPedido;
+        public RepositorioProduto repositorioProduto;
+
         public TelaFuncionario telaFuncionario;
         public TelaMesa telaMesa;
         public TelaPedido telaPedido;
         public RepositorioMesa repositorioMesa;
-        public RepositorioProduto repositorioProduto;
         public TelaProduto telaProduto;
 
-        public TelaConta(RepositorioBase repositorio, RepositorioFuncionario repositorioFuncionario,
+        public TelaConta(RepositorioConta repositorio, RepositorioFuncionario repositorioFuncionario,
             RepositorioPedido repositorioPedido, RepositorioMesa repositorioMesa, TelaFuncionario telaFuncionario, TelaMesa telaMesa,
             TelaPedido telaPedido, RepositorioProduto repositorioProduto, TelaProduto telaProduto) : base(repositorio)
         {
@@ -35,12 +36,12 @@ namespace ControleDeBar.ConsoleApp.Conta
             this.telaPedido = telaPedido;
             this.repositorioMesa = repositorioMesa;
             this.telaMesa = telaMesa;
-            repositorioConta = (RepositorioConta)repositorio;
+            repositorioConta = repositorio;
             this.repositorioProduto = repositorioProduto;
             this.telaProduto = telaProduto;
         }
 
-        protected override void MostrarTabela(ArrayList registros)
+        protected override void MostrarTabela(List<EntidadeConta> registros)
         {
             string pedidosstr = " ";
             int valor = 0;
@@ -63,7 +64,7 @@ namespace ControleDeBar.ConsoleApp.Conta
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override EntidadeConta ObterRegistro()
         {
             if (!repositorioFuncionario.TemRegistros())
             {
@@ -84,7 +85,7 @@ namespace ControleDeBar.ConsoleApp.Conta
             }
 
             int valorConta = 0;
-            ArrayList pedidos = new ArrayList();
+            List<EntidadePedido> pedidos = new List<EntidadePedido>();
 
             EntidadeMesa mesa = ObterMesa();
 

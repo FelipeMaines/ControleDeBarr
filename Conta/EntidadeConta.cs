@@ -15,11 +15,11 @@ namespace ControleDeBar.ConsoleApp.Conta
 
         public EntidadeFuncionario funcionario { get; set; }
         public EntidadeMesa mesa { get; set; }
-        public ArrayList pedidos { get; set; }
+        public List<EntidadePedido> pedidos { get; set; }
         public int valor { get; set; }
         public bool isFechada { get; set; }
 
-        public EntidadeConta(EntidadeFuncionario funcionario, ArrayList pedidos, EntidadeMesa mesa, int valor)
+        public EntidadeConta(EntidadeFuncionario funcionario, List<EntidadePedido> pedidos, EntidadeMesa mesa, int valor)
         {
             this.funcionario = funcionario;
             this.pedidos = pedidos;

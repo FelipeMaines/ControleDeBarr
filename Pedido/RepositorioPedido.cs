@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Pedido
 {
-    public class RepositorioPedido : RepositorioBase
+    public class RepositorioPedido : RepositorioBase<EntidadePedido>
     {
 
-        public RepositorioPedido(ArrayList arrayList)
+        public RepositorioPedido(List<EntidadePedido> list)
         {
-            this.listaRegistros = arrayList;
+            this.listaRegistros = list;
         }
     }
 }

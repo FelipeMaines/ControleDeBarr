@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ControleDeBar.ConsoleApp.Produto
 {
-    public class RepositorioProduto : RepositorioBase
+    public class RepositorioProduto : RepositorioBase<EntidadeProduto>
     {
 
-        public RepositorioProduto(ArrayList arrayList)
+        public RepositorioProduto(List<EntidadeProduto> arrayList)
         {
             this.listaRegistros = arrayList;
         }
