@@ -46,6 +46,8 @@ namespace ControleDeBar.ConsoleApp.Conta
             string pedidosstr = " ";
             int valor = 0;
 
+            registros = OrganizarArray();
+
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -30}", "id", "Mesa", "Pedidos", "Valor");
 
             Console.WriteLine("-----------------------------------------------------------------------");
@@ -59,7 +61,7 @@ namespace ControleDeBar.ConsoleApp.Conta
                 }
 
 
-                Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -30}", conta.id, conta.mesa.local, pedidosstr, conta.valor);
+                Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -30}", conta.id, conta.mesa.local, pedidosstr, valor);
                 pedidosstr = string.Empty;
             }
         }
@@ -255,6 +257,11 @@ namespace ControleDeBar.ConsoleApp.Conta
             string opcao = Console.ReadLine();
 
             return opcao;
+        }
+
+        public override List<EntidadeConta> OrganizarArray()
+        {
+            return base.OrganizarArray();
         }
 
     }

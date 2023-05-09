@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
+using System.Runtime.CompilerServices;
 
 namespace ControleDeBar.ConsoleApp.Mesa
 {
@@ -30,6 +32,8 @@ namespace ControleDeBar.ConsoleApp.Mesa
 
         protected override void MostrarTabela(List<EntidadeMesa> registros)
         {
+            registros = OrganizarArray();
+
             Console.WriteLine("{0, -10} | {1, -10} |", "id","local");
 
             Console.WriteLine("-----------------------------------------------------------------------");
@@ -48,6 +52,9 @@ namespace ControleDeBar.ConsoleApp.Mesa
             return new EntidadeMesa(local);
         }
 
-       
+        public override List<EntidadeMesa> OrganizarArray()
+        {
+            return base.OrganizarArray();
+        }
     }
 }

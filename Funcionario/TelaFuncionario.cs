@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleDeBar.ConsoleApp.Produto;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace ControleDeBar.ConsoleApp.Funcionario
 
         protected override void MostrarTabela(List<EntidadeFuncionario> registros)
         {
+            registros = OrganizarArray();
+
             Console.WriteLine("{0, -10} | {1, -10} | ", "id", "nome");
 
             Console.WriteLine("-----------------------------------------------------------------------");
@@ -33,6 +36,11 @@ namespace ControleDeBar.ConsoleApp.Funcionario
             string nome = Console.ReadLine();
 
             return new EntidadeFuncionario(nome);
+        }
+
+        public override List<EntidadeFuncionario> OrganizarArray()
+        {
+            return base.OrganizarArray();
         }
     }
 }

@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using ControleDeBar.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleDeBar.ConsoleApp
 {
-    public abstract class TelaBase<T, TRepositorio> where T : EntidadeBase where TRepositorio : RepositorioBase<T>
+    public abstract class TelaBase<T, TRepositorio> : ITelaCadastravel
+        where T : EntidadeBase 
+        where TRepositorio : RepositorioBase<T>
     {
         public string nomeEntidade;
         public string sufixo;
@@ -83,6 +86,15 @@ namespace ControleDeBar.ConsoleApp
             }
 
             MostrarTabela(registros);
+        }
+
+        public virtual List<T> OrganizarArray()
+        {
+            List<T> list = repositorioBase.SelecionarTodos();
+
+            list.Sort((x, y) => x.id.CompareTo(y.id));
+
+            return list;
         }
 
         public virtual void EditarRegistro()

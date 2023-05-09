@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleDeBar.ConsoleApp.Mesa;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace ControleDeBar.ConsoleApp.Produto
 
         protected override void MostrarTabela(List<EntidadeProduto> registros)
         {
+            registros = OrganizarArray();
+
             Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | ", "id", "nome", "valor");
 
             Console.WriteLine("----------------------------------------");
@@ -35,6 +38,15 @@ namespace ControleDeBar.ConsoleApp.Produto
             int valor = int.Parse(Console.ReadLine());
 
             return new EntidadeProduto(nome, valor);
+        }
+
+        public override List<EntidadeProduto> OrganizarArray()
+        {
+            List<EntidadeProduto> list = repositorioBase.SelecionarTodos();
+
+            list.Sort((x, y) => x.valor.CompareTo(y.valor));
+
+            return list;
         }
     }
 }
